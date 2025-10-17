@@ -5,8 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "prebuild": "npm ci || (rm -rf node_modules package-lock.json && npm install)",
-        "build": "vite build",
+        "build": "npm ci && vite build",
         "lint": "eslint .",
         "preview": "vite preview"
     },
