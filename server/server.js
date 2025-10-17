@@ -34,10 +34,10 @@ app.get('/api/products', async (req, res) => {
     }
 });
 
-// app.get('/*splat', (req, res) => {
-//     console.log('Successfully connected to the server');
-//     res.sendFile(path.join(__dirname, '../client/index.html'));
-// });
+app.get('/*splat', (req, res) => {
+    console.log('Successfully connected to the server');
+    res.sendFile(path.join(__dirname, '../client/index.html'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
