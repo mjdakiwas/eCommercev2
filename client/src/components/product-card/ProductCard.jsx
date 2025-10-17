@@ -6,12 +6,12 @@ export default function ProductCard({ product }) {
             <div>
                 <img
                     className="product-card__img"
-                    src={`/src/assets/images/products/${product.path}`}
+                    src={`/src/assets/images/products/${product.imgPath}`}
                     alt={product.productName}
                 />
             </div>
             <div>
-                <p className="product-card__title">{product.productName}</p>
+                <p className="product-card__title">{product.name}</p>
                 <p className="product-card__price">{product.price}</p>
                 <p>{product.description}</p>
                 <button className="product-card__cart-btn">Add to Cart</button>

@@ -22,7 +22,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, '../client/public')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/api/products', async (req, res) => {
     try {
@@ -36,9 +36,9 @@ app.get('/api/products', async (req, res) => {
 
 app.get('/*splat', (req, res) => {
     console.log('Successfully connected to the server');
-    res.sendFile(path.join(__dirname, '../client/public/index.html'));
+    res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Server running on port ${PORT}`);
 });

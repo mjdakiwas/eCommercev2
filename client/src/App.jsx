@@ -14,9 +14,7 @@ function App() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch(
-                    `${import.meta.env.VITE_API_BASE_URL}/api/products`
-                );
+                const res = await fetch('/api/products');
                 if (!res.ok) throw new Error(`Failed to fetch: ${res}`);
                 const data = await res.json();
                 console.log('Fetched products data:', data);

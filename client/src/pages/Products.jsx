@@ -11,7 +11,7 @@ export default function Products({ products }) {
             </h2>
             <div className="product-grid">
                 {products.map((product) => (
-                    <ProductCard key={product.productID} product={product} />
+                    <ProductCard key={product.id} product={product} />
                 ))}
             </div>
         </main>
