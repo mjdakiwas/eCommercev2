@@ -22,7 +22,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use(express.static(path.join(__dirname, '../client')));
+const client_root = path.join(__dirname, '../client');
+app.use(express.static(path.join(client_root, 'dist')));
 
 app.get('/api/products', async (req, res) => {
     try {
@@ -36,7 +37,7 @@ app.get('/api/products', async (req, res) => {
 
 app.get('/*splat', (req, res) => {
     console.log('Successfully connected to the server');
-    res.sendFile(path.join(__dirname, '../client/index.html'));
+    res.sendFile(path.join(client_root, 'index.html'));
 });
 
 app.listen(PORT, '0.0.0.0', () => {
