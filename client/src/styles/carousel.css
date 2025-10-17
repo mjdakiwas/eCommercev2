@@ -2,18 +2,20 @@
     position: relative;
 }
 
-.carousel__leftBtn {
-    position: absolute;
-    top: 50%;
-    transform: scaleX(-1) translateY(-50%);
-    z-index: 5;
-}
-
+.carousel__leftBtn,
 .carousel__rightBtn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 5;
+}
+
+.carousel__leftBtn {
+    left: 0.5rem;
+}
+
+.carousel__rightBtn {
+    right: 0.5rem;
 }
 
 .carousel__slides {
@@ -25,4 +27,15 @@
     display: inline-block;
     width: 100%;
     height: auto;
+}
+
+.carousel__slide:not(.current) {
+    display: none;
+}
+
+.carousel__dot {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 1rem;
+    background-color: #adc4cf;
 }

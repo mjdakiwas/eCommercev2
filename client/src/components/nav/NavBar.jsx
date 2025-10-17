@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../styles/navbar.css';
 import logo from '/logo.png';
@@ -6,6 +6,9 @@ import MenuButton from './MenuButton.jsx';
 
 export default function NavBar({ pathname }) {
     const [isHamburgOpen, setHamburgOpen] = useState(false);
+    useEffect(() => {
+        setHamburgOpen(false);
+    }, [pathname]);
 
     return (
         <nav className={isHamburgOpen ? 'navbar open' : 'navbar'}>
