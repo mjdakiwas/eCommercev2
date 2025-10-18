@@ -16,14 +16,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-const client_root = path.join(__dirname, '../client');
-app.use(express.static(path.join(client_root, 'dist')));
-
-app.get('/', (req, res) => {
-    console.log('Successfully connected to the server');
-    res.sendFile(path.join(client_root, 'index.html'));
-});
-
 app.get('/api/products', async (req, res) => {
     try {
         const [rows] = await pool.query(`SELECT * FROM products`);
