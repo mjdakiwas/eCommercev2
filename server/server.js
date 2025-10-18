@@ -2,27 +2,15 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 import pool from './utils/db.js';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corsOptions = {
     origin: process.env.FRONTEND_URL,
-    optionsSuccessStatus: 200,
+    credentials: true,
 };
 app.use(cors(corsOptions));
-
-const client_root = path.join(__dirname, '../client');
-app.use(express.static(path.join(client_root, 'dist')));
-
-app.get('/', (req, res) => {
-    console.log('Successfully connected to the server');
-    res.sendFile(path.join(client_root, 'index.html'));
-});
 
 app.get('/api/products', async (req, res) => {
     try {
