@@ -8,7 +8,7 @@
         "build": "vite build",
         "lint": "eslint .",
         "preview": "vite preview --host 0.0.0.0 --port $PORT",
-        "start": "sh -c \"echo \\$PORT is $PORT && npx serve -s dist -l tcp://0.0.0.0:$PORT || npx serve -s dist -l tcp://0.0.0.0:3000\""
+        "start": "cross-env PORT=$PORT npx serve -s dist -H 0.0.0.0"
     },
     "dependencies": {
         "react": "^19.1.1",
