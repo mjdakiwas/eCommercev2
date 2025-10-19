@@ -15,7 +15,7 @@ function App() {
         const fetchProducts = async () => {
             try {
                 const res = await fetch(
-                    `${import.meta.env.VITE_API_URL}/api/products`
+                    'https://ecommercev2-production-9d77.up.railway.app/api/products'
                 );
                 if (!res.ok) throw new Error(`Failed to fetch: ${res}`);
                 const data = await res.json();
