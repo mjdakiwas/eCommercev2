@@ -1,0 +1,30 @@
+footer {
+    background-color: #186b80;
+    color: white;
+}
+
+.subscribe {
+}
+
+.subscribe__form {
+    display: grid;
+}
+
+.subscribe__input {
+}
+
+.subscribe__input.error {
+}
+
+.message {
+}
+
+.social-media__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.company-docs__container a {
+    color: white;
+}

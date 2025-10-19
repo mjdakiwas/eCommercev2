@@ -1,9 +1,16 @@
 .navbar {
     background-color: #f7dcad;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .navbar.open .navbar__content {
     display: flex;
+}
+
+.navbar__logo {
+    flex: 1 0 auto;
 }
 
 .navbar__logo img {

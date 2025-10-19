@@ -1,3 +1,9 @@
-export default function Dot() {
-    return <div className="carousel__dot"></div>;
+export default function Dot({ index, active, onClick }) {
+    return (
+        <button
+            type="button"
+            className={`carousel__dot ${active ? 'current' : ''}`}
+            onClick={() => onClick(index)}
+        />
+    );
 }

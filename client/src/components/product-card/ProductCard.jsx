@@ -6,8 +6,8 @@ export default function ProductCard({ product }) {
             <div>
                 <img
                     className="product-card__img"
-                    src={`/src/assets/images/products/${product.imgPath}`}
-                    alt={product.productName}
+                    src={`/src/assets/images/products/${product.path}`}
+                    alt={product.name}
                 />
             </div>
             <div>

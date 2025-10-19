@@ -3,3 +3,21 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: #fdede4;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Fraunces', serif;
+}
+
+p,
+ul,
+li,
+a {
+    font-family: 'Epilogue', sans-serif;
+}
