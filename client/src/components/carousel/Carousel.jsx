@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
     IoArrowBackCircleSharp,
     IoArrowForwardCircleSharp,
@@ -8,12 +8,32 @@ import Slide from './Slide.jsx';
 import Dot from './Dot.jsx';
 
 export default function Carousel() {
+    const mobileheroImgsObj = import.meta.glob(
+        '/src/assets/images/hero/desktop/*.{png,jpg,jpeg,PNG,JPEG}',
+        { eager: true, import: 'default' }
+    );
+
     const heroImgsObj = import.meta.glob(
         '/src/assets/images/hero/*.{png,jpg,jpeg,PNG,JPEG}',
         { eager: true, import: 'default' }
     );
+    const [viewport, setViewport] = useState(window.innerWidth);
 
-    const imgs = Object.values(heroImgsObj);
+    useEffect(() => {
+        const handleResize = () => setViewport(window.innerWidth);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    let imgs;
+    if (viewport < 768) {
+        imgs = Object.values(heroImgsObj);
+    } else {
+        imgs = Object.values(mobileheroImgsObj);
+    }
+
+    console.log(imgs);
+
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const goPrevSlide = () => {
@@ -31,7 +51,12 @@ export default function Carousel() {
             <button className="carousel__rightBtn" onClick={goNextSlide}>
                 <IoArrowForwardCircleSharp />
             </button>
-            <div className="carousel__slides">
+            <div
+                className="carousel__slides"
+                style={{
+                    transform: `translateX(-${currentSlide * 100}%)`,
+                }}
+            >
                 {imgs.map((src, index) => (
                     <Slide
                         key={index}

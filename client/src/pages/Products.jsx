@@ -45,7 +45,7 @@ export default function Products({ products }) {
     }, [products, filters.searchTerm, filters.sortBy]);
 
     return (
-        <main>
+        <main className="products-pg">
             <h1>All Flavors</h1>
             <h2>
                 Pull up a stool and grab a spoon — these flavors are the bee's

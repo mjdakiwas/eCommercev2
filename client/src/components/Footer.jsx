@@ -14,6 +14,7 @@ export default function Footer() {
     const {
         register,
         handleSubmit,
+        clearErrors,
         formState: { errors },
     } = useForm();
 
@@ -32,35 +33,50 @@ export default function Footer() {
                 <form
                     className="subscribe__form"
                     onSubmit={handleSubmit(onSubmit)}
+                    noValidate
                 >
-                    <input
-                        type="email"
-                        className={
-                            errors.subscriberEmail
-                                ? 'subscribe__input error'
-                                : 'subscribe__input'
-                        }
-                        {...register('subscriberEmail', {
-                            required: 'Please enter your email address',
-                            pattern: {
-                                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                                message:
-                                    'Please enter a valid email address (e.g. example@domain.com)',
-                            },
-                        })}
-                    />
-                    <p className="message" aria-live="polite">
+                    <div>
+                        <input
+                            type="email"
+                            className={
+                                errors.subscriberEmail
+                                    ? 'subscribe__input error'
+                                    : 'subscribe__input'
+                            }
+                            {...register('subscriberEmail', {
+                                required: 'Please enter your email address',
+                                pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message:
+                                        'Please enter a valid email address (e.g. example@domain.com)',
+                                },
+                            })}
+                            onChange={() => clearErrors('subscriberEmail')}
+                            placeholder="Email address"
+                        />
+                        <button
+                            type="submit"
+                            className="newsletter-submit__btn"
+                        >
+                            <IconContext.Provider
+                                value={{
+                                    color: '#094559',
+                                    size: '1.5rem',
+                                }}
+                            >
+                                <IoArrowForwardSharp />
+                            </IconContext.Provider>
+                        </button>
+                    </div>
+                    <p className="subscribe__input-message" aria-live="polite">
                         {errors.subscriberEmail?.message || '\u00A0'}
                     </p>
-                    <button type="submit" className="newsletter-submit__btn">
-                        <IoArrowForwardSharp />
-                    </button>
                 </form>
             </div>
             <div>
                 <ul className="social-media__container">
                     <li>
-                        <NavLink>
+                        <NavLink to="https://www.facebook.com/">
                             <IconContext.Provider
                                 value={{
                                     color: 'white',
@@ -72,7 +88,7 @@ export default function Footer() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink>
+                        <NavLink to="https://www.instagram.com/">
                             <IconContext.Provider
                                 value={{
                                     color: 'white',
@@ -85,7 +101,7 @@ export default function Footer() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink>
+                        <NavLink to="https://www.linkedin.com/in/mdakiwas/">
                             <IconContext.Provider
                                 value={{
                                     color: 'white',
@@ -98,7 +114,7 @@ export default function Footer() {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink>
+                        <NavLink to="https://github.com/mjdakiwas">
                             <IconContext.Provider
                                 value={{
                                     color: 'white',
@@ -125,6 +141,7 @@ export default function Footer() {
                         <a href="">Accessibility Statement</a>
                     </li>
                 </ul>
+                <hr />
                 <p>Top O' Cherry @ 2025 All Rights Reserved</p>
             </div>
         </footer>

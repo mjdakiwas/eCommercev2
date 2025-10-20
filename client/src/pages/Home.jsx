@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
 import Carousel from '../components/carousel/Carousel';
+import '../styles/pages/home.css';
 
 export default function Home() {
     return (

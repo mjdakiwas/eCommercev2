@@ -1,6 +1,89 @@
+.products-pg {
+    padding: 1rem;
+}
+
+.products-pg h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: #186b80;
+}
+
+.products-pg h2 {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+
+.controls input,
+.controls select {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 1.5rem;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.controls input:focus,
+.controls select:focus {
+    border-color: #4eb7b4;
+    box-shadow: 0 0 0 3px rgba(78, 183, 180, 0.2);
+}
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     gap: 2rem;
     padding: 2rem;
+}
+
+.product-grid .product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-grid .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+@media (min-width: 992px) {
+    .products-pg {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    .products-pg h1 {
+        font-size: 2.5rem;
+    }
+
+    .products-pg h2 {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .controls input,
+    .controls select {
+        max-width: 300px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 2rem;
+        padding: 2rem 0;
+    }
 }

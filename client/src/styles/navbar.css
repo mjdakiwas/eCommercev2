@@ -1,39 +1,107 @@
 .navbar {
+    width: 100%;
+    background-color: #f7dcad;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.navbar__header {
+    position: relative;
     background-color: #f7dcad;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1.25rem;
+    z-index: 30;
 }
 
-.navbar.open .navbar__content {
-    display: flex;
-}
-
-.navbar__logo {
-    flex: 1 0 auto;
+.navbar__hamburgBtn {
+    background-color: transparent;
 }
 
 .navbar__logo img {
-    width: 8rem;
+    width: 7rem;
 }
 
 .navbar__content {
     position: absolute;
-    display: none;
-    flex-direction: column;
+    top: 100%; /* starts below the header */
+    left: 0;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
+    height: calc(100vh - 4rem); /* adjust depending on header height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #4eb7b4;
-    font-family: 'Epilogue', sans-serif;
+    opacity: 0;
+    transform: translateY(-100vh);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     z-index: 10;
 }
 
-.navbar__links-list {
-    list-style-type: none;
+.navbar.open .navbar__content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-a {
+.navbar__links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.navbar__links-list a {
     color: black;
     text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.navbar__links-list a:hover,
+.navbar__links-list a.active {
+    color: #e03932;
+}
+
+.cartBtn {
+    background-color: transparent;
+}
+
+@media (min-width: 1024px) {
+    .navbar__header {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        column-gap: 2rem;
+        align-items: center;
+    }
+
+    .navbar__hamburgBtn {
+        display: none;
+    }
+
+    .navbar__content {
+        position: static;
+        height: auto;
+        width: auto;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .navbar__links-list {
+        flex-direction: row;
+        gap: 2.5rem;
+        font-size: 1rem;
+    }
 }

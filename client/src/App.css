@@ -18,6 +18,26 @@ h4 {
 p,
 ul,
 li,
-a {
+a,
+button {
     font-family: 'Epilogue', sans-serif;
+}
+
+button {
+    border: none;
+    border-radius: 2rem;
+    background-color: #186b80;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    width: 100%;
 }

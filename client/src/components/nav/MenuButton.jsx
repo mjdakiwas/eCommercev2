@@ -7,12 +7,12 @@ export default function MenuButton(props) {
     };
 
     return (
-        <button>
+        <button className="navbar__hamburgBtn">
             {props.isHamburgOpen ? (
                 <IconContext.Provider
                     value={{
                         color: '#186b80',
-                        size: '2.25rem',
+                        size: '2rem',
                         className: `navbar__modalBtn--close`,
                     }}
                 >
@@ -22,7 +22,7 @@ export default function MenuButton(props) {
                 <IconContext.Provider
                     value={{
                         color: '#186b80',
-                        size: '2.25rem',
+                        size: '2rem',
                         className: `navbar__modalBtn--open `,
                     }}
                 >

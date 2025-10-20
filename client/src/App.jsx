@@ -1,4 +1,3 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import NavBar from './components/nav/NavBar.jsx';
@@ -6,6 +5,7 @@ import Footer from './components/Footer.jsx';
 import Home from './pages/Home.jsx';
 import Products from './pages/Products.jsx';
 import ContactUs from './pages/ContactUs.jsx';
+import './App.css';
 
 function App() {
     const { pathname } = useLocation();
